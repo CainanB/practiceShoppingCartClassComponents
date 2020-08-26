@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {addProduct} from '../actions/cartActions'
+import './ui/cartButtons.css'
 
 
 
 class AddProductToCart extends Component {
+
     
     addToCart = (e) => {
         e.preventDefault()
-        let numberOfItems = parseInt(this.refs.numToAdd.value)
+        let inputValue = this.refs.numToAdd.value === "" ? 1 : this.refs.numToAdd.value;
+        // console.log(inputValue)
+        let numberOfItems = parseInt(inputValue)
         let {id,price,title} = this.props.product
         this.props.addProduct({
             id: id,
@@ -24,13 +28,17 @@ class AddProductToCart extends Component {
   render() {
     return (
       <>
-        <form onSubmit={this.addToCart}>
+        {/* <form onSubmit={this.addToCart}>
 
-            <input ref="numToAdd" type="number"/>
+            <input ref="numToAdd" type="number" min="1" max="5"/>
             <button type="submit">Add To Cart</button>
-        </form>
+        </form> */}
          
-      
+         <div className="number">
+            <span className="minus">-</span>
+            <input type="text" value="1"/>
+            <span className="plus">+</span>
+        </div>
         
       </>
     )

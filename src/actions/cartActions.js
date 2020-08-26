@@ -19,6 +19,13 @@ export const loadProducts = (products) =>{
     }
 }
 
+export const updateNumberProductInCart = (product) =>{
+    return{
+        type: "UPDATE_PRODUCT_CART_NUM",
+        product:{...product}
+    }
+}
+
 
 
 export const fetchProducts = () => {

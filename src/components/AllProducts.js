@@ -47,7 +47,7 @@ class AllProducts extends Component {
                 )
             })}
        
-              {/* <Buttons /> */}
+              
         
 
 
